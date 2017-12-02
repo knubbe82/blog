@@ -169,3 +169,15 @@ h6,
 .blog-footer p:last-child {
   margin-bottom: 0;
 }
+
+#flash-message {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10;
+  animation: flash 4s forwards;
+}
+@keyframes flash {
+  0% {opacity: 1;}
+  100% {opacity: 0; display: none;}
+}

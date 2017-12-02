@@ -12,6 +12,7 @@ class PostsController extends Controller
     {
         $this->middleware('auth')->except(['index', 'show']);
     }
+
     public function index(Posts $posts)
     {
         $posts = $posts->all();
@@ -47,6 +48,8 @@ class PostsController extends Controller
         auth()->user()->publish(
             new Post(request(['title', 'body']))
         );
+
+        session()->flash('message', 'Your post has now been published.');
 
         return redirect('/');
     }
